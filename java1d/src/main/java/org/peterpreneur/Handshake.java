@@ -10,7 +10,7 @@ public class Handshake {
 
             while (t-- > 0) {
                 int n = Integer.parseInt(input.nextLine());
-                int result = Handshake.handshake(n);
+                int result = (int) Handshake.handshake(n);
                 System.out.println(result);
             }
         }
