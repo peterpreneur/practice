@@ -2,10 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"name": "java1d",
-			"path": "java1d"
 		}
 	],
 	"settings": {}
