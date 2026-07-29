@@ -8,14 +8,13 @@ package org.peterpreneur;
  *
  * @author peter
  */
-public class ThreadDemo {
+public class RunnableDemo {
 
-    
 
-    static class Hi extends Thread {
+    static class Hi implements Runnable {
 
         public void run() {
-            for (int i = 1; i <= 10; i++) {
+            for (int i = 1; i <= 5; i++) {
                 System.out.println("Hi " + i);
                 try {
                     Thread.sleep(10);
@@ -27,28 +26,28 @@ public class ThreadDemo {
         }
     }
 
-    static class Hello extends Thread {
+    static class Hello implements Runnable {
 
         public void run() {
-            for (int i = 1; i <= 10; i++) {
+            for (int i = 1; i <= 5; i++) {
                 System.out.println("Hello " + i);
             }
         }
     }
 
     public static void main(String[] args) {
-        Hi hi = new Hi();
-        Hello hello = new Hello();
+        Runnable hi = new Hi();
+        Runnable hello = new Hello();
 
-        // hi.setPriority(Thread.MAX_PRIORITY);
-        // hello.setPriority(Thread.MIN_PRIORITY);
-        System.out.println(hi.getPriority()
-        );
-        System.out.println(hello.getPriority()
-        );
+        Thread t1 = new Thread(hi);
+        Thread t2 = new Thread(hello); 
+        // t1.setPriority(Thread.MAX_PRIORITY);
+        // t2.setPriority(Thread.MIN_PRIORITY);
+        System.out.println(t1.getPriority());
+        System.out.println(t2.getPriority());
 
-        hi.start();
-        hello.start();
+        t1.start();
+        t2.start();
 
     }
 
