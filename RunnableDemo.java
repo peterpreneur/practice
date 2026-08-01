@@ -10,22 +10,19 @@ package org.peterpreneur;
  */
 public class RunnableDemo {
 
-
-    static class Hi implements Runnable {
-
-        public void run() {
-            for (int i = 1; i <= 5; i++) {
-                System.out.println("Hi " + i);
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
+    // static class Hi implements Runnable {
+    //     public void run() {
+    //         for (int i = 1; i <= 5; i++) {
+    //             System.out.println("Hi " + i);
+    //             try {
+    //                 Thread.sleep(10);
+    //             } catch (InterruptedException e) {
+    //                 // TODO Auto-generated catch block
+    //                 e.printStackTrace();
+    //             }
+    //         }
+    //     }
+    // }
     static class Hello implements Runnable {
 
         public void run() {
@@ -36,11 +33,15 @@ public class RunnableDemo {
     }
 
     public static void main(String[] args) {
-        Runnable hi = new Hi();
+        Runnable hi = () -> {
+            for (int i = 1; i <= 5; i++) {
+                System.out.println("Hi " + i);
+            }
+        };
         Runnable hello = new Hello();
 
         Thread t1 = new Thread(hi);
-        Thread t2 = new Thread(hello); 
+        Thread t2 = new Thread(hello);
         // t1.setPriority(Thread.MAX_PRIORITY);
         // t2.setPriority(Thread.MIN_PRIORITY);
         System.out.println(t1.getPriority());
