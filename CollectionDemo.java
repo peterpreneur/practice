@@ -19,6 +19,7 @@ public class CollectionDemo {
         List<Integer> nums = new ArrayList<Integer>();
         nums.add(3);
         nums.add(4);
+        System.out.println(nums.getClass().getSimpleName());
 
         Set<Integer> sets = new TreeSet<Integer>();
         sets.add(6);
